@@ -1,27 +1,20 @@
-<h1>Listing workouts</h1>
-
-<table>
-  <tr>
-    <th>Location</th>
-    <th>Date</th>
-    <th>Notes</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="page-header">
+  <div class="pull-right">
+    <%= link_to "Add Workout", new_workout_path, class: "btn btn-success"%>
+  </div>
+  <h1>All Workouts</h1>
+</div>
 
 <% @workouts.each do |workout| %>
-  <tr>
-    <td><%= workout.location %></td>
-    <td><%= workout.date %></td>
-    <td><%= workout.notes %></td>
-    <td><%= link_to 'Show', workout %></td>
-    <td><%= link_to 'Edit', edit_workout_path(workout) %></td>
-    <td><%= link_to 'Destroy', workout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+  <div class="workout">
+    <strong><%= workout.location %></strong>
+    <p><%= time_ago_in_words(workout.date) + " ago" %><br />
+    <%= workout.notes %></p>
+    <div class="meta">
+      <%= link_to "Show", workout %>
+      <span class="admin">
+        | <%= link_to "Edit", edit_workout_path(workout) %>
+        | <%= link_to "Delete", workout, method: :delete, data: { confirm: "Are you sure you want to delete this status?"} %>
+    </div>
+  </div>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Workout', new_workout_path %>
