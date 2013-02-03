@@ -4,8 +4,10 @@ one:
   location: MyString
   date: 2013-02-02 15:15:48
   notes: MyText
+  user: jason
 
 two:
   location: MyString
   date: 2013-02-02 15:15:48
   notes: MyText
+  user: jason
