@@ -1,0 +1,7 @@
+jason:
+  first_name: "Jason"
+  last_name: "Seifer"
+  email: "jason@teamtreehouse.com"
+  nickname: "jay"
+  #password: "password"
+  #password_confirmation: "password"
