@@ -9,6 +9,7 @@ group :development, :test do
 	gem 'sqlite3'
 end
 gem 'devise'
+gem 'simple_form'
 
 group :production do
 	gem 'pg'
