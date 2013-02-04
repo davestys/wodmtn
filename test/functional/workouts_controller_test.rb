@@ -23,6 +23,12 @@ class WorkoutsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should be logged in to a add a new Workout" do
+    post :create, workout: {location: "Aspire"}
+    assert_response :redirect
+    assert_redirected_to new_user_session_path
+  end
+
   test "should create workout" do
     assert_difference('Workout.count') do
       post :create, workout: { date: @workout.date, location: @workout.location, notes: @workout.notes }
