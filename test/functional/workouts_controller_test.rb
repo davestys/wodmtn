@@ -57,14 +57,14 @@ class WorkoutsControllerTest < ActionController::TestCase
   end
 
   test "should redirect workout update when not logged in" do
-    put :update, id: @status, workout: { location: @workout.location }
+    put :update, id: @workout, workout: { location: @workout.location }
     assert_response :redirect
     assert_redirected_to new_user_session_path
   end
 
-  test "should update workouts when logged in" do
+  test "should update workout when logged in" do
     sign_in users(:jason)
-    put :workout, id: @status, status: { location: @status.location }
+    put :update, id: @workout, workout: { location: @workout.location }
     assert_redirected_to workout_path(assigns(:workout))
   end
 
