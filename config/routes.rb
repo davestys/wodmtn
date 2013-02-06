@@ -13,6 +13,8 @@ Wodmtn::Application.routes.draw do
   get 'feed', to: 'workouts#index', as: :feed
   root :to => "workouts#index"
 
+  get ':id', to: 'profiles#show'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

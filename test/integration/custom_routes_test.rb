@@ -17,4 +17,9 @@ test "that the /logout route opens the logout page" do
     assert_response :success
  end
 
+ test "that a profile page works" do
+ 	get 'jasonseifer'
+ 	assert_response :success
+ end
+
 end
