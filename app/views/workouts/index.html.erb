@@ -3,6 +3,7 @@
     <%= link_to "Add Workout", new_workout_path, class: "btn btn-success"%>
   </div>
   <h1>My Workouts</h1>
+  <h3>Total Wods: <%= @workouts.count %></h3
 </div>
 
 <% @workouts.each do |workout| %>

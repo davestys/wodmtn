@@ -3,7 +3,7 @@ class WorkoutsController < ApplicationController
   # GET /workouts
   # GET /workouts.json
   def index
-    @workouts = current_user.workouts.all
+    @workouts = current_user.workouts.all(:order => 'date DESC')
 
 
     respond_to do |format|

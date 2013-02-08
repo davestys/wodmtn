@@ -1,5 +1,5 @@
 Wodmtn::Application.routes.draw do
-  get "profiles/show"
+  #get "profiles/show"
 
   devise_for :users
 
@@ -8,6 +8,8 @@ Wodmtn::Application.routes.draw do
       get "login", to: 'devise/sessions#new', as: :login
       get "logout", to: 'devise/sessions#destroy', as: :logout
   end
+
+  get "/users/sign_in"
 
   resources :workouts
   get 'feed', to: 'workouts#index', as: :feed
