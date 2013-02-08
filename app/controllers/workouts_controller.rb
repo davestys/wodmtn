@@ -1,9 +1,10 @@
 class WorkoutsController < ApplicationController
-  before_filter :authenticate_user!, only: [:new, :create]
+  before_filter :authenticate_user!, only: [:new, :create, :edit, :update]
   # GET /workouts
   # GET /workouts.json
   def index
     @workouts = Workout.all
+
 
     respond_to do |format|
       format.html # index.html.erb
@@ -41,7 +42,7 @@ class WorkoutsController < ApplicationController
   # POST /workouts
   # POST /workouts.json
   def create
-    @workout = Workout.new(params[:workout])
+    @workout = current_user.workouts.new(params[:workout])
 
     respond_to do |format|
       if @workout.save
@@ -57,8 +58,10 @@ class WorkoutsController < ApplicationController
   # PUT /workouts/1
   # PUT /workouts/1.json
   def update
-    @workout = Workout.find(params[:id])
-
+    @workout = current_user.workouts.find(params[:id])
+    if params[:workout] && params[:workout].has_key?(:user_id)
+      params[:workout].delete(:user_id) 
+    end
     respond_to do |format|
       if @workout.update_attributes(params[:workout])
         format.html { redirect_to @workout, notice: 'Workout was successfully updated.' }

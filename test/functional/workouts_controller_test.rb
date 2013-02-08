@@ -33,10 +33,21 @@ class WorkoutsControllerTest < ActionController::TestCase
     sign_in users(:jason)
 
     assert_difference('Workout.count') do
-      post :create, location: { location: @workout.location }
+      post :create, workout: { location: @workout.location }
     end
 
     assert_redirected_to workout_path(assigns(:workout))
+  end
+
+  test "should create workout for the current user when logged in" do
+    sign_in users(:jason)
+
+    assert_difference('Workout.count') do
+      post :create, workout: { location: @workout.location, user_id: users(:jim).id }
+    end
+
+    assert_redirected_to workout_path(assigns(:workout))
+    assert_equal assigns(:workout).user_id, users(:jason).id
   end
 
   test "should show workout" do
@@ -66,6 +77,20 @@ class WorkoutsControllerTest < ActionController::TestCase
     sign_in users(:jason)
     put :update, id: @workout, workout: { location: @workout.location }
     assert_redirected_to workout_path(assigns(:workout))
+  end
+
+  test "should update workout for the current user when logged in" do
+    sign_in users(:jason)
+    put :update, id: @workout, workout: { location: @workout.location, user_id: users(:jim).id }
+    assert_redirected_to workout_path(assigns(:workout))
+    assert_equal assigns(:workout).user_id, users(:jason).id
+  end
+
+  test "should not update workout if nothing has changed" do
+    sign_in users(:jason)
+    put :update, id: @workout
+    assert_redirected_to workout_path(assigns(:workout))
+    assert_equal assigns(:workout).user_id, users(:jason).id
   end
 
   test "should destroy workout" do
