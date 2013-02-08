@@ -8,7 +8,7 @@
 <% @workouts.each do |workout| %>
   <div class="workout">
     <strong><%= workout.location %></strong>
-    <p><%= workout.user.nickname %><br />
+    
     <p><%= time_ago_in_words(workout.date) + " ago" %><br />
     <%= workout.notes %></p>
     <div class="meta">
