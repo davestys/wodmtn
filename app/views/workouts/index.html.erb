@@ -2,13 +2,13 @@
   <div class="pull-right">
     <%= link_to "Add Workout", new_workout_path, class: "btn btn-success"%>
   </div>
-  <h1>All Workouts</h1>
+  <h1>My Workouts</h1>
 </div>
 
 <% @workouts.each do |workout| %>
   <div class="workout">
     <strong><%= workout.location %></strong>
-    
+
     <p><%= time_ago_in_words(workout.date) + " ago" %><br />
     <%= workout.notes %></p>
     <div class="meta">
