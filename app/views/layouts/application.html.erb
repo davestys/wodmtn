@@ -24,23 +24,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<nav class="top-bar contain-to-grid">
-	 	<ul>
-		    <li class="name"><h1><%=link_to "wod-mtn", home_index_path %></h1></li>
-		    <li class="toggle-topbar"><a href="#"></a></li>
-	  	</ul>
-	<section>
-	  	<ul class="right">
-	    	<% if user_signed_in? %>
-				<li><%= link_to current_user.full_name, edit_user_registration_path %></li>
-				<li><%= link_to "Log Out", logout_path %></li>
-			<% else %>
-				<li><%= link_to "Register", register_path %></li>
-				<li><%= link_to "Log in", login_path %></li>
-			<% end %>
-		</ul>
-	  </section>
-	</nav>
+	<div class="row">
+		<div class="twelve columns">
+		  	<ul class="nav-bar">
+		    	<% if user_signed_in? %>
+					<li><%= link_to current_user.full_name, edit_user_registration_path %></li>
+					<li><%= link_to "Log Out", logout_path %></li>
+				<% else %>
+					<li><%= link_to "Register", register_path %></li>
+					<li><%= link_to "Log in", login_path %></li>
+				<% end %>
+			</ul>
+			<h1>WOD Mountain <small></small>
+      		<hr>
+    		</h1>
+		</div>
+	</div>
   <div class="row">
 		<% flash.each do |type, message| %>
 			<div class="twelve columns alert-box <%= flash_class type %>">
