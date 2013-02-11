@@ -1,25 +1,30 @@
- <p id="notice"><%= notice %></p>
 
-<p>
-  <b>User:</b>
-  <%= @workout.user.full_name %>
-</p>
+<div class="row">
+	<div class="four columns">
+		 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Location:</b>
-  <%= @workout.location %>
-</p>
+		<p>
+		  <b>User:</b>
+		  <%= @workout.user.full_name %>
+		</p>
 
-<p>
-  <b>Date:</b>
-  <%= @workout.date %>
-</p>
+		<p>
+		  <b>Location:</b>
+		  <%= @workout.location %>
+		</p>
 
-<p>
-  <b>Notes:</b>
-  <%= @workout.notes %>
-</p>
+		<p>
+		  <b>Date:</b>
+		  <%= @workout.date %>
+		</p>
+
+		<p>
+		  <b>Notes:</b>
+		  <%= @workout.notes %>
+		</p>
 
 
-<%= link_to 'Edit', edit_workout_path(@workout) %> |
-<%= link_to 'Back', workouts_path %>
+		<%= link_to 'Edit', edit_workout_path(@workout) %> |
+		<%= link_to 'Back', workouts_path %>
+	</div>
+</div>

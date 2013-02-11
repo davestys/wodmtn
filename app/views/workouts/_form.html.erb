@@ -1,20 +1,22 @@
-<%= simple_form_for(@workout, html: {class: "form-horizontal"}) do |f| %>
-  <% if @workout.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@workout.errors.count, "error") %> prohibited this workout from being saved:</h2>
+<div class="row">
+  <div class="four columns">
+    <%= simple_form_for(@workout, html: {class: "form-horizontal"}) do |f| %>
+      <% if @workout.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@workout.errors.count, "error") %> prohibited this workout from being saved:</h2>
 
-      <ul>
-      <% @workout.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+          <ul>
+          <% @workout.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-    <%= f.input :location %>
-    <%= f.input :date %>
-    <%= f.input :notes %>
-  <div class="form-actions">
-    <%= f.button :submit %>
+        <%= f.input :location %>
+        <%= f.input 'date' %>
+        <%= f.input :notes %>
+        <%= f.button :submit %>
+        
+    <% end %>
   </div>
-<% end %>
+</div>

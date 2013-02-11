@@ -15,8 +15,7 @@ end
 
 gem 'devise'
 gem 'simple_form'
-
-
+gem 'gumby-rails'
 
 
 # Gems used only for assets and not required
@@ -24,6 +23,8 @@ gem 'simple_form'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
+  gem 'compass-rails'
+  gem 'zurb-foundation'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
@@ -31,8 +32,10 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
 
+
+gem 'jquery-rails'
+gem 'ui_datepicker-rails3'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

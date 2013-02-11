@@ -1,5 +1,7 @@
 Wodmtn::Application.routes.draw do
-  #get "profiles/show"
+  get "home/index"
+
+  root :to => "home#index"
 
   devise_for :users
 
@@ -9,11 +11,8 @@ Wodmtn::Application.routes.draw do
       get "logout", to: 'devise/sessions#destroy', as: :logout
   end
 
-  get "/users/sign_in"
-
   resources :workouts
   get 'feed', to: 'workouts#index', as: :feed
-  root :to => "workouts#index"
 
   get ':id', to: 'profiles#show'
 

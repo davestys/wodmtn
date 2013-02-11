@@ -1,13 +1,14 @@
-<div class="page-header">
-	<h1><%= @user.full_name %></h1>
+<div class="row">
+	<div class="four columns">
+		<h1><%= @user.full_name %></h1>
+		<% if @workouts %>
+			<% @workouts.each do |workout| %>
+				<div >
+					<%= workout.location %>
+					<hr />
+					<%= link_to time_ago_in_words(workout.date), workout_path(workout) %> ago
+				</div>
+			<% end %>
+		<% end %>
+	</div>
 </div>
-
-<% if @workouts %>
-	<% @workouts.each do |workout| %>
-		<div class="well">
-			<%= workout.location %>
-			<hr />
-			<%= link_to time_ago_in_words(workout.date), workout_path(workout) %> ago
-		</div>
-	<% end %>
-<% end %>
