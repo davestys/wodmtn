@@ -1,6 +1,6 @@
-<div class="container"</div>
-	<div class="row">
-		<div class="four columns">
+<div class="row">
+	<div class="four columns">
+		<div class="panel centered">
 			<% if !user_signed_in? %>
 				<h1>Welcome!</h1>
 				<%= simple_form_for("user", :url => user_session_path) do |f| %>
