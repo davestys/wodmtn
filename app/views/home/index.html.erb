@@ -1,19 +1,36 @@
-<div class="row">
-	<div class="four columns">
-		<div class="panel">
-			<% if !user_signed_in? %>
+<% if !user_signed_in? %>
+	<div class="row">
+		<div class="four columns">
+			<div class="panel">
 				<h1>Welcome!</h1>
 				<%= simple_form_for("user", :url => user_session_path) do |f| %>
-				  <%= f.text_field :email %>
-				  <%= f.password_field :password %>
-				  <%= f.check_box :remember_me %>
-				  <%= f.label :remember_me %>
-				  <%= f.submit 'Sign in' %>
-				  <%= link_to "Forgot your password?", new_password_path('user') %>
-				<% end %>
-			<% else %>
-				<h2>Welcome Back</h2>
-			<% end %>
+			  		<%= f.text_field :email %>
+			  		<%= f.password_field :password %>
+			  		<%= f.check_box :remember_me %>
+			  		<%= f.label :remember_me %>
+			  		<%= f.submit 'Sign in' %>
+			  	<%= link_to "Forgot your password?", new_password_path('user') %>
+		  	</div>
+	 	</div>
+  	</div>
+	<% end %>
+<% else %>
+	<div class="row">
+		<div class="three columns">
+			<div class="panel">
+				<h1><%= @total_workouts %> WODs</h1>
+			</div>
+		</div>
+		<div class="three columns">
+			<div class="panel">
+				<p><%= @num_workouts_in_last_week %> WODs in last 7 days</p>
+			</div>
+		</div>
+		<div class="six columns">
+			<div class="panel">
+				<a class="radius button" href=<%= new_workout_path %>>Add WOD</a>
+			</div>
 		</div>
 	</div>
-</div>
+<% end %>
+

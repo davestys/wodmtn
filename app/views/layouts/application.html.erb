@@ -26,6 +26,9 @@
 <body>
 	<div class="row">
 		<div class="twelve columns">
+			<h1><%= link_to "WOD Mountain", home_index_path %> <small></small>
+      		<hr>
+    		</h1>
 		  	<ul class="nav-bar">
 		    	<% if user_signed_in? %>
 					<li><%= link_to current_user.full_name, edit_user_registration_path %></li>
@@ -35,9 +38,6 @@
 					<li><%= link_to "Log in", login_path %></li>
 				<% end %>
 			</ul>
-			<h1>WOD Mountain <small></small>
-      		<hr>
-    		</h1>
 		</div>
 	</div>
   	<div class="row">
