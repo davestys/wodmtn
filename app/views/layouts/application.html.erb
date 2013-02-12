@@ -31,6 +31,8 @@
     		</h1>
 		  	<ul class="nav-bar">
 		    	<% if user_signed_in? %>
+		    		<li><%= link_to "Home", home_index_path %></li>
+		    		<li><%= link_to "Workouts", workouts_path %></li>
 					<li><%= link_to current_user.full_name, edit_user_registration_path %></li>
 					<li><%= link_to "Log Out", logout_path %></li>
 				<% else %>
