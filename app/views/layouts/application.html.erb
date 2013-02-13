@@ -23,23 +23,36 @@
   
   <%= csrf_meta_tags %>
 </head>
-<body>
-	<div class="row">
-		<div class="twelve columns">
-			<h1><%= link_to "WOD Mountain", home_index_path %> <small></small>
-      		<hr>
-    		</h1>
-		  	<ul class="nav-bar">
-		    	<% if user_signed_in? %>
-		    		<li><%= link_to "Home", home_index_path %></li>
-		    		<li><%= link_to "Workouts", workouts_path %></li>
-					<li><%= link_to current_user.full_name, edit_user_registration_path %></li>
-					<li><%= link_to "Log Out", logout_path %></li>
-				<% else %>
-					<li><%= link_to "Register", register_path %></li>
-					<li><%= link_to "Log in", login_path %></li>
-				<% end %>
-			</ul>
+<div class="row">
+  <div class="twelve columns">
+    <nav class="top-bar">
+      <ul>
+        <!-- Title Area -->
+        <li class="name">
+          <h1>
+            <%= link_to "wod mtn", home_index_path %> 
+          </h1>
+        </li>
+        <li class="toggle-topbar"><a href="#"></a></li>
+      </ul>
+
+      <ul class="right">
+      	<li class="divider show-for-medium-and-up"></li>
+    	<% if user_signed_in? %>
+    		<li><%= link_to "Home", home_index_path %></li>
+    		<li class="divider show-for-medium-and-up"></li>
+    		<li><%= link_to "Workouts", workouts_path %></li>
+    		<li class="divider show-for-medium-and-up"></li>
+			<li><%= link_to current_user.full_name, edit_user_registration_path %></li>
+			<li class="divider show-for-medium-and-up"></li>
+			<li><%= link_to "Log Out", logout_path %></li>
+		<% else %>
+			<li><%= link_to "Register", register_path %></li>
+			<li class="divider show-for-medium-and-up"></li>
+			<li><%= link_to "Log in", login_path %></li>
+		<% end %>
+        </ul>
+
 		</div>
 	</div>
   	<div class="row">
