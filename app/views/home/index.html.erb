@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="eight columns">
 		<h2 class="subheader"><%= link_to "Your Mountain Journey", home_index_path %></h2>
-		<h4 class="subheader"> <%= @wods_for_current_year.count %> WODs this year </h4>
+		<h4 class="subheader"> <%= @wods_for_current_year.count %> WODs This Year </h4>
 	</div>
 </div>
 <% if !user_signed_in? %>
@@ -22,14 +22,17 @@
 	<% end %>
 <% else %>
 	<div class="row">
-		<% @wod_months.keys.sort.each do |month| %>
-			<div class="three columns"> 
-				<div class="panel"> 
-					<h3><%= month.strftime("%B") %></h2>  
-	  				<h3 class="subheader"> <%= @wod_months[month].count %> WODs </h3>
-	  			</div>
-  			</div> 
+		<ul class="block-grid four-up mobile-two-up">
+		<% @wod_months.keys.sort.reverse.each do |month| %>
+			
+				<li>
+					<div class="panel"> 
+						<h3><%= month.strftime("%B") %></h2>  
+		  				<h3 class="subheader"> <%= @wod_months[month].count %> WODs </h3>
+		  			</div>
+	  			</li>
 		<% end %>  
+		</ul> 
 	</div>
 	<div class="row">
 		<div class="six columns">
