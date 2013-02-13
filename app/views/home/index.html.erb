@@ -1,3 +1,9 @@
+<div class="row">
+	<div class="eight columns">
+		<h2 class="subheader"><%= link_to "Your Mountain Journey", home_index_path %></h2>
+		<h4 class="subheader"> <%= @wods_for_current_year.count %> WODs this year </h4>
+	</div>
+</div>
 <% if !user_signed_in? %>
 	<div class="row">
 		<div class="four columns">
@@ -16,21 +22,23 @@
 	<% end %>
 <% else %>
 	<div class="row">
-		<div class="three columns">
-			<div class="panel callout radius">
-				<h1><%= @total_workouts %> WODs</h1>
-				<p><%= link_to "see all workouts", workouts_path %></p>
-			</div>
-		</div>
-		<div class="three columns">
+		<% @wod_months.keys.sort.each do |month| %>
+			<div class="three columns"> 
+				<div class="panel"> 
+					<h3><%= month.strftime("%B") %></h2>  
+	  				<h3 class="subheader"> <%= @wod_months[month].count %> WODs </h3>
+	  			</div>
+  			</div> 
+		<% end %>  
+	</div>
+	<div class="row">
+		<div class="six columns">
 			<div class="panel">
 				<p><%= @num_workouts_in_last_week %> WODs in last 7 days</p>
 			</div>
 		</div>
 		<div class="six columns">
-			<div class="panel">
 				<a class="radius button" href=<%= new_workout_path %>>Add WOD</a>
-			</div>
 		</div>
 	</div>
 <% end %>
